@@ -10,7 +10,7 @@ document.getElementById('w2-upload-form').addEventListener('submit', async funct
   const formData = new FormData();
   formData.append('w2Form', fileInput.files[0]);
 
- const res = await fetch('https://tax-au-backend-production.up.railway.app/api/dashboard/upload-w2', {
+ const res = await fetch('tax-au-backend-backup-production.up.railway.app/api/dashboard/upload-w2', {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + getToken() },
     body: formData
@@ -27,7 +27,7 @@ document.getElementById('w2-upload-form').addEventListener('submit', async funct
 
 // Extract W-2 Data
 document.getElementById('extract-w2-btn').addEventListener('click', async function() {
-  const res = await fetch('https://tax-au-backend-production.up.railway.app/api/dashboard/extract-w2', {
+  const res = await fetch('tax-au-backend-backup-production.up.railway.app/api/dashboard/extract-w2', {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + getToken() }
   });
@@ -43,7 +43,7 @@ document.getElementById('extract-w2-btn').addEventListener('click', async functi
 
 // Load and display extracted W-2 data
 async function loadW2Data() {
-  const res = await fetch('https://tax-au-backend-production.up.railway.app/api/dashboard/w2-data', {
+  const res = await fetch('tax-au-backend-backup-production.up.railway.app/api/dashboard/w2-data', {
     headers: { 'Authorization': 'Bearer ' + getToken() }
   });
   const data = await res.json();
@@ -80,7 +80,7 @@ document.getElementById('w2-data-form').addEventListener('submit', async functio
     body[key] = isNaN(value) ? value : Number(value);
   }
 
-  const res = await fetch('https://tax-au-backend-production.up.railway.app/api/dashboard/w2-data', {
+  const res = await fetch('tax-au-backend-backup-production.up.railway.app/api/dashboard/w2-data', {
     method: 'PUT',
     headers: {
       'Authorization': 'Bearer ' + getToken(),
