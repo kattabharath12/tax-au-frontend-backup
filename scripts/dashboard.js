@@ -1,4 +1,4 @@
-const API_BASE_URL = 'tax-au-backend-backup-production.up.railway.app/api';
+const API_BASE_URL = 'https://tax-au-backend-production.up.railway.app/api';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
