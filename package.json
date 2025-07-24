@@ -1,0 +1,13 @@
+{
+  "name": "tax-au-frontend",
+  "version": "1.0.0",
+  "description": "Tax Filing Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}

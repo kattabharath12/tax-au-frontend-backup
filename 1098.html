@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1098 Form Management | Tax-AU</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <div class="container">
+    <h1>1098 Form Management</h1>
+
+    <section>
+      <h2>Generate 1098 Form</h2>
+      <button id="generate-1098-btn">Generate 1098 from W-2 Data</button>
+      <div id="generate-message"></div>
+    </section>
+
+    <section>
+      <h2>1098 Form Data</h2>
+      <form id="form1098-data-form" style="display:none;">
+        <div id="form1098-fields"></div>
+        <button type="submit">Save Changes</button>
+      </form>
+      <div id="form1098-data-message"></div>
+    </section>
+
+    <section>
+      <h2>Download 1098 PDF</h2>
+      <button id="download-1098-btn">Download 1098 PDF</button>
+      <div id="download-message"></div>
+    </section>
+  </div>
+
+  <script>
+    // Load navbar
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+      });
+  </script>
+  <script src="1098.js"></script>
+</body>
+</html>

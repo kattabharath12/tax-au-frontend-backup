@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>W-2 Management | Tax-AU</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <div class="container">
+    <h1>W-2 Form Management</h1>
+
+    <section>
+      <h2>Upload W-2 Form</h2>
+      <form id="w2-upload-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="w2Form">Select W-2 File (PDF, JPG, PNG, DOCX):</label>
+          <input type="file" id="w2Form" name="w2Form" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+        </div>
+        <button type="submit">Upload W-2</button>
+      </form>
+      <div id="upload-message"></div>
+    </section>
+
+    <section>
+      <h2>Extract W-2 Data</h2>
+      <button id="extract-w2-btn">Extract Data from Uploaded W-2</button>
+      <div id="extract-message"></div>
+    </section>
+
+    <section>
+      <h2>Extracted W-2 Data</h2>
+      <form id="w2-data-form" style="display:none;">
+        <div id="w2-fields"></div>
+        <button type="submit">Save Changes</button>
+      </form>
+      <div id="w2-data-message"></div>
+    </section>
+  </div>
+
+  <script>
+    // Load navbar
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+      });
+  </script>
+  <script src="w2.js"></script>
+</body>
+</html>

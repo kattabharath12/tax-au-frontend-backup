@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tax Filing App</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>Tax Filing Dashboard</h1>
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </header>
+
+        <nav class="dashboard-nav">
+            <button class="nav-btn active" data-section="profile">Profile</button>
+            <button class="nav-btn" data-section="dependents">Dependents</button>
+            <button class="nav-btn" data-section="documents">Documents</button>
+            <button class="nav-btn" data-section="w2-upload">W-2 Upload</button>
+        </nav>
+
+        <main class="dashboard-content">
+            <!-- Profile Section -->
+            <section id="profile" class="section active">
+                <h2>Profile Information</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="filingStatus">Filing Status:</label>
+                        <select id="filingStatus" name="filingStatus">
+                            <option value="">Select Status</option>
+                            <option value="single">Single</option>
+                            <option value="married-joint">Married Filing Jointly</option>
+                            <option value="married-separate">Married Filing Separately</option>
+                            <option value="head-of-household">Head of Household</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </section>
+
+            <!-- Dependents Section -->
+            <section id="dependents" class="section">
+                <h2>Dependents</h2>
+                <div id="dependentsList"></div>
+                <button id="addDependentBtn" class="btn btn-primary">Add Dependent</button>
+
+                <div id="dependentForm" class="form-modal" style="display: none;">
+                    <form id="newDependentForm">
+                        <div class="form-group">
+                            <label for="depName">Name:</label>
+                            <input type="text" id="depName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="depRelationship">Relationship:</label>
+                            <input type="text" id="depRelationship" name="relationship">
+                        </div>
+                        <div class="form-group">
+                            <label for="depDob">Date of Birth:</label>
+                            <input type="date" id="depDob" name="dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="depSsn">SSN:</label>
+                            <input type="text" id="depSsn" name="ssn">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="button" id="cancelDependent" class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Documents Section -->
+            <section id="documents" class="section">
+                <h2>Document Upload</h2>
+                <div class="upload-section">
+                    <h3>W-9 Form</h3>
+                    <input type="file" id="w9Upload" accept=".pdf,.jpg,.png">
+                    <button id="uploadW9" class="btn btn-primary">Upload W-9</button>
+                    <div id="w9Status"></div>
+                </div>
+            </section>
+
+            <!-- W-2 Upload Section -->
+            <section id="w2-upload" class="section">
+                <h2>W-2 Form Upload & 1098 Generation</h2>
+                <div class="upload-section">
+                    <h3>Upload W-2 Form</h3>
+                    <input type="file" id="w2Upload" accept=".pdf,.jpg,.png">
+                    <button id="uploadW2" class="btn btn-primary">Upload W-2</button>
+                    <div id="w2Status"></div>
+                </div>
+
+                <div id="w2Results" style="display: none;">
+                    <h3>W-2 Information</h3>
+                    <div id="w2Data"></div>
+                    <button id="generate1098" class="btn btn-success">Generate 1098 Form</button>
+                </div>
+
+                <div id="form1098Results" style="display: none;">
+                    <h3>Generated 1098 Form</h3>
+                    <div id="form1098Data"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/scripts/dashboard.js"></script>
+</body>
+</html>
